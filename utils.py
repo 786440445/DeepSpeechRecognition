@@ -15,9 +15,9 @@ def data_hparams():
         data_type='train',
         data_path='data/',
         thchs30=True,
-        aishell=True,
-        prime=True,
-        stcmd=True,
+        aishell=False,
+        prime=False,
+        stcmd=False,
         batch_size=1,
         data_length=10,
         shuffle=True)

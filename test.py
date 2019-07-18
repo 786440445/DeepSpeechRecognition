@@ -13,7 +13,7 @@ train_data = get_data(data_args)
 
 
 # 1.声学模型-----------------------------------
-from model_speech.cnn_ctc import Am, am_hparams
+from model_speech.dfcnn_ctc import Am, am_hparams
 
 am_args = am_hparams()
 am_args.vocab_size = len(train_data.am_vocab)

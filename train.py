@@ -7,13 +7,13 @@ from keras.callbacks import ModelCheckpoint
 # 0.准备训练所需数据------------------------------
 data_args = data_hparams()
 data_args.data_type = 'train'
-data_args.data_path = '../dataset/'
+data_args.data_path = '../../speech_data/'
 data_args.thchs30 = True
 data_args.aishell = True
 data_args.prime = True
 data_args.stcmd = True
 data_args.batch_size = 4
-data_args.data_length = 10
+data_args.data_length = 1000
 # data_args.data_length = None
 data_args.shuffle = True
 train_data = get_data(data_args)
@@ -21,9 +21,9 @@ train_data = get_data(data_args)
 # 0.准备验证所需数据------------------------------
 data_args = data_hparams()
 data_args.data_type = 'dev'
-data_args.data_path = '../dataset/'
+data_args.data_path = '../../speech_data/'
 data_args.thchs30 = True
-data_args.aishell = True
+data_args.aishell = False
 data_args.prime = False
 data_args.stcmd = False
 data_args.batch_size = 4
@@ -33,7 +33,7 @@ data_args.shuffle = True
 dev_data = get_data(data_args)
 
 # 1.声学模型训练-----------------------------------
-from model_speech.cnn_ctc import Am, am_hparams
+from model_speech.dfcnn_ctc import Am, am_hparams
 am_args = am_hparams()
 am_args.vocab_size = len(train_data.am_vocab)
 am_args.gpu_nums = 1
